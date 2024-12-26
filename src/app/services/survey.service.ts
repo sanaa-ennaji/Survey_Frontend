@@ -36,7 +36,7 @@ interface PagenationResponse {
 providedIn: 'root'
 })
 export class SurveyService {
-    private apiUrl = 'http://localhost:8080/api/survey';
+    private apiUrl = 'http://localhost:8080/api/v1/survey';
 
     constructor(private http: HttpClient) {}
 
