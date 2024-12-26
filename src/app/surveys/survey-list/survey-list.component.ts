@@ -3,6 +3,7 @@ import { SurveyService } from '../../services/survey.service';
 import { SurveyCardComponent } from '../survey-card/survey-card.component';
 import { CommonModule } from '@angular/common';
 
+
 interface Owner {
   id: number;
   name: string;
@@ -14,7 +15,6 @@ interface SurveyEdition {
   startDate: string;
   year: number;
 }
-
 interface Survey {
   id: number;
   title: string;
@@ -26,9 +26,10 @@ interface Survey {
 @Component({
   selector: 'app-survey-list',
   standalone: true,
-  imports: [CommonModule, SurveyCardComponent],
+  imports: [ CommonModule, SurveyCardComponent],
   templateUrl: './survey-list.component.html',
   styleUrls: ['./survey-list.component.css']
+
 })
 export class SurveyListComponent implements OnInit {
   surveys: Survey[] = [];

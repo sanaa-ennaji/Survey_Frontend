@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface Owner {
   id: number;
@@ -23,7 +24,8 @@ interface Survey {
 @Component({
   selector: 'app-survey-card',
   templateUrl: './survey-card.component.html',
-  styleUrls: ['./survey-card.component.css']
+  styleUrls: ['./survey-card.component.css'],
+  imports: [CommonModule]
 })
 export class SurveyCardComponent {
   @Input() survey!: Survey;
