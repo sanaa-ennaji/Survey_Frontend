@@ -1,0 +1,11 @@
+<div class="survey-list">
+  <h2>Surveys</h2>
+  <div class="survey-cards">
+    <app-survey-card *ngFor="let survey of surveys" [survey]="survey"></app-survey-card>
+  </div>
+  <div class="pagination">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
+    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage >= totalPages - 1">Next</button>
+  </div>
+</div>

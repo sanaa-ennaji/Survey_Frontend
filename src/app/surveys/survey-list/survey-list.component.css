@@ -1,0 +1,21 @@
+.survey-list {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .survey-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  .pagination button {
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  

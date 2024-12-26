@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { SurveysListComponent } from './surveys/surveys-list/surveys-list.component';
+import { SurveyListComponent } from './surveys/surveys-list/survey-list.component';
+
 export const routes: Routes = [
-    {path: '' , component:  SurveysListComponent },
+    { path: '', component: SurveyListComponent },
 ];

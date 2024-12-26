@@ -1,0 +1,13 @@
+<div class="survey-card">
+  <h3>{{ survey.title }}</h3>
+  <p>{{ survey.description }}</p>
+  <p><strong>Owner:</strong> {{ survey.owner.name }}</p>
+  <h4>Survey Editions:</h4>
+  <ul>
+    <li *ngFor="let edition of survey.surveyEditions">
+      Year: {{ edition.year }}, Start Date: {{ edition.startDate }}
+    </li>
+  </ul>
+</div>
+
+  
