@@ -1,12 +1,27 @@
-<p>survey-list works!</p>
 <div class="survey-list">
   <h2>Surveys</h2>
   <div class="survey-cards">
     <app-survey-card *ngFor="let survey of surveys" [survey]="survey"></app-survey-card>
   </div>
-  <div class="pagination">
-    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
-    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
-    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage >= totalPages - 1">Next</button>
+  <div class="pagination flex items-center justify-center gap-4 mt-4">
+    <button 
+      (click)="goToPage(currentPage - 1)" 
+      [disabled]="currentPage === 0"
+      class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed"
+    >
+      Previous
+    </button>
+    <!-- <span class="text-sm font-medium text-green-700 dark:text-gray-300">
+      Page {{ currentPage + 1 }} of {{ totalPages }}
+    </span> -->
+    
+    <button 
+      (click)="goToPage(currentPage + 1)" 
+      [disabled]="currentPage >= totalPages - 1"
+      class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed"
+    >
+      Next
+    </button>
   </div>
+  
 </div>
