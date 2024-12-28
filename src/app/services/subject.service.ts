@@ -17,7 +17,7 @@ export interface Subject {
     providedIn : 'root',
 })
 export class SubjectService{
-    private apiUrl = 'http://localhost:8080/api/v1/subject'
+    private apiUrl = 'http://localhost:8080/api/v1/subject/edition/{id}'
     constructor(private http: HttpClient){}
 
     getAllSubjects():  Observable<Subject[]>{
