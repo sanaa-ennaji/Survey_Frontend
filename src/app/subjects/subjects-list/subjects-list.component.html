@@ -1,1 +1,18 @@
-<p>subjects-list works!</p>
+<div>
+    <h2>Subjects for Survey Edition ID: {{ surveyEditionId }}</h2>
+    <div *ngIf="filteredSubjects.length; else noSubjects">
+      <div *ngFor="let subject of filteredSubjects" class="subject-card">
+        <h3>{{ subject.title }}</h3>
+        <div *ngIf="subject.subSubjects.length">
+          <h4>Sub-Subjects:</h4>
+          <ul>
+            <li *ngFor="let sub of subject.subSubjects">{{ sub.title }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ng-template #noSubjects>
+      <p>No subjects found for this survey edition.</p>
+    </ng-template>
+  </div>
+  
