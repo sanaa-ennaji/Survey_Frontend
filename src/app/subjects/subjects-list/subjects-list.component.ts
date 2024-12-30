@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SubjectService, SubjectResponseDTO } from '../../services/subject.service';
+import { SubjectService } from '../../services/subject.service';
+import{SubjectResponseDTO } from '../../models/subject.model'
 import { CommonModule } from '@angular/common';
 
 @Component({

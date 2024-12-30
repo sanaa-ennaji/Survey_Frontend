@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import  {SubjectResponseDTO } from '../models/subject.model'
 
-export interface SubjectResponseDTO {
-  id: number;
-  title: string;
-  parentSubjectId: number;
-  subSubjects: { id: number; title: string }[];
-  surveyEditionId: number;
-  questions: any[];
-}
 
 @Injectable({
   providedIn: 'root'

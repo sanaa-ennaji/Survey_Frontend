@@ -1,6 +1,7 @@
-<div class="survey-list">
-  <h2>Surveys</h2>
-  <div class="survey-cards">
+
+  <h2 class="w-[98w] bg-green-500  text-xl text-white font-semibold p-3  text-center mb-8 scroll-m-0">Surveys</h2>
+  <div class="survey-list">
+  <div class="survey-cards flex-wrap w-[80vw] m-auto">
     <app-survey-card *ngFor="let survey of surveys" [survey]="survey"></app-survey-card>
   </div>
   <div class="pagination flex items-center justify-center gap-4 mt-4">
@@ -11,9 +12,9 @@
     >
       Previous
     </button>
-    <!-- <span class="text-sm font-medium text-green-700 dark:text-gray-300">
+    <span class="text-sm font-medium text-green-700 dark:text-gray-300">
       Page {{ currentPage + 1 }} of {{ totalPages }}
-    </span> -->
+    </span>
     
     <button 
       (click)="goToPage(currentPage + 1)" 
