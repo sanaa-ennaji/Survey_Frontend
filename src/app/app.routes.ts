@@ -4,6 +4,6 @@ import { SubjectsListComponent } from './subjects/subjects-list/subjects-list.co
 
 export const routes: Routes = [
     { path: '', component: SurveyListComponent },
-    {path: 'subjects/:id', component: SubjectsListComponent},
+    { path: 'edition/:id', component: SubjectsListComponent },
 ];
 

@@ -1,18 +1,25 @@
-<div>
-    <h2>Subjects for Survey Edition ID: {{ surveyEditionId }}</h2>
-    <div *ngIf="filteredSubjects.length; else noSubjects">
-      <div *ngFor="let subject of filteredSubjects" class="subject-card">
-        <h3>{{ subject.title }}</h3>
-        <div *ngIf="subject.subSubjects.length">
-          <h4>Sub-Subjects:</h4>
-          <ul>
-            <li *ngFor="let sub of subject.subSubjects">{{ sub.title }}</li>
-          </ul>
-        </div>
+<!-- subject-list.component.html -->
+<div *ngIf="subjects.length > 0">
+    <h2 class="text-xl font-bold">Subjects</h2>
+    <div *ngFor="let subject of subjects" class="subject-card p-4 mb-4 bg-gray-100 border rounded">
+      <div class="subject-title font-semibold text-lg">
+        {{ subject.title }}
+       
+      </div>
+      <!-- Display sub-subjects if any -->
+      <div *ngIf="subject.subSubjects.length > 0" class="subsubjects mt-2">
+        <h3 class="text-md font-medium">Sub-Subjects</h3>
+        <ul class="list-disc pl-5">
+          <li *ngFor="let subSubject of subject.subSubjects">
+            {{ subSubject.title }}
+          </li>
+        </ul>
       </div>
     </div>
-    <ng-template #noSubjects>
-      <p>No subjects found for this survey edition.</p>
-    </ng-template>
+  </div>
+  
+  <!-- If no subjects are found -->
+  <div *ngIf="subjects.length === 0">
+    <p>No subjects found.</p>
   </div>
   

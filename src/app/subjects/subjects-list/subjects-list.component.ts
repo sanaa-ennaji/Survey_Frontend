@@ -1,39 +1,32 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SubjectService, Subject } from '../../services/subject.service';
+import { SubjectService, SubjectResponseDTO } from '../../services/subject.service';
+import { CommonModule } from '@angular/common';
+
 @Component({
-  selector: 'app-subjects-list',
-  imports: [],
+  selector: 'app-subjects',
   templateUrl: './subjects-list.component.html',
-  styleUrl: './subjects-list.component.css'
+  imports : [CommonModule],
+  providers: [SubjectService],
 })
 export class SubjectsListComponent implements OnInit {
-  private subjectService = inject(SubjectService);
-  private route = inject(ActivatedRoute);
+  subjects: SubjectResponseDTO[] = [];
+  editionId!: number;
 
-  subjects: Subject[] = [];
-  filteredSubjects: Subject[] = [];
-  surveyEditionId: number | null = null;
+  constructor(
+    private route: ActivatedRoute,
+    private subjectService: SubjectService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.surveyEditionId = Number(params['id']);
-      this.fetchSubjects();
-    });
+    this.editionId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadSubjects();
   }
 
-  fetchSubjects(): void {
-    this.subjectService.getAllSubjects().subscribe((data) => {
-      this.subjects = data;
-      this.filterSubjectsBySurveyEdition();
+  loadSubjects(): void {
+    this.subjectService.getSubjectsByEditionId(this.editionId).subscribe({
+      next: (data) => (this.subjects = data),
+      error: (err) => console.error('Error loading subjects', err)
     });
-  }
-
-  filterSubjectsBySurveyEdition(): void {
-    if (this.surveyEditionId) {
-      this.filteredSubjects = this.subjects.filter(
-        (subject) => subject.surveyEdition?.id === this.surveyEditionId
-      );
-    }
   }
 }
