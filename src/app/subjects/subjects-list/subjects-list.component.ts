@@ -4,6 +4,7 @@ import { SubjectService } from '../../services/subject.service';
 import{SubjectResponseDTO } from '../../models/subject.model'
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-subjects',
   templateUrl: './subjects-list.component.html',
