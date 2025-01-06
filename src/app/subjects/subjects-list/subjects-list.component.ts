@@ -8,11 +8,12 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-subjects',
   templateUrl: './subjects-list.component.html',
-  imports : [CommonModule],
+  imports: [CommonModule],
   providers: [SubjectService],
 })
 export class SubjectsListComponent implements OnInit {
   subjects: SubjectResponseDTO[] = [];
+  selectedSubSubjectQuestions: any[] = [];
   editionId!: number;
 
   constructor(
@@ -30,5 +31,16 @@ export class SubjectsListComponent implements OnInit {
       next: (data) => (this.subjects = data),
       error: (err) => console.error('Error loading subjects', err)
     });
+  }
+
+  onSubSubjectClick(subSubjectId: number): void {
+    const subSubject = this.subjects.find(
+      (subject) => subject.id === subSubjectId
+    );
+    if (subSubject) {
+      this.selectedSubSubjectQuestions = subSubject.questions || [];
+    } else {
+      this.selectedSubSubjectQuestions = [];
+    }
   }
 }

@@ -10,7 +10,7 @@
         <h3 class="text-lg font-medium mb-2">Sub-Subjects</h3>
         <ul class="list-none pl-5">
           <li *ngFor="let subSubject of subject.subSubjects">
-            <div class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded">
+            <div    (click)="onSubSubjectClick(subSubject.id)"    style="cursor: pointer; color: blue;"  class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded">
               {{ subSubject.title }}
             </div>
           </li>
@@ -23,3 +23,25 @@
     <p>No subjects found.</p>
   </div>
   
+  <!-- Questions Table Section -->
+  <div class="col-md-6">
+    <h3>Questions</h3>
+    <table *ngIf="selectedSubSubjectQuestions.length > 0" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Text</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of selectedSubSubjectQuestions">
+          <td>{{ question.id }}</td>
+          <td>{{ question.text }}</td>
+          <td>{{ question.questionType }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="selectedSubSubjectQuestions.length === 0">No questions available for this subsubject.</p>
+  </div>
+
