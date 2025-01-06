@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SubjectService } from '../../services/subject.service';
-import{SubjectResponseDTO } from '../../models/subject.model'
+import { SubjectResponseDTO } from '../../models/subject.model';
+import { Question } from '../../models/question.model';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-subjects',
@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SubjectsListComponent implements OnInit {
   subjects: SubjectResponseDTO[] = [];
-  selectedSubSubjectQuestions: any[] = [];
+  selectedSubSubjectQuestions: Question[] = []; 
   editionId!: number;
 
   constructor(
@@ -34,13 +34,18 @@ export class SubjectsListComponent implements OnInit {
   }
 
   onSubSubjectClick(subSubjectId: number): void {
-    const subSubject = this.subjects.find(
-      (subject) => subject.id === subSubjectId
-    );
-    if (subSubject) {
-      this.selectedSubSubjectQuestions = subSubject.questions || [];
-    } else {
-      this.selectedSubSubjectQuestions = [];
+    // Clear the previous selected questions
+    this.selectedSubSubjectQuestions = [];
+
+    // Find the subSubject with the clicked id and fetch its questions
+    for (const subject of this.subjects) {
+      const subSubject = subject.subSubjects.find(
+        (sub) => sub.id === subSubjectId
+      );
+      if (subSubject) {
+        this.selectedSubSubjectQuestions = subSubject.questions || [];
+        break;
+      }
     }
   }
 }

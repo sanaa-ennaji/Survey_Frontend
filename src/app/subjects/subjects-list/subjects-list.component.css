@@ -9,28 +9,52 @@
     padding-left: 8px; 
   }
   
-  .container {
-    margin-top: 20px;
+  
+/* Custom Table Styling */
+.custom-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  ul {
-    list-style-type: none;
-    padding: 0;
+  .custom-table thead {
+    background-color: #28a745; /* Green header */
+    color: #fff;
   }
   
-  li {
-    margin: 5px 0;
+  .custom-table th {
+    text-align: center;
+    font-weight: bold;
   }
   
-  li ul {
-    margin-left: 20px;
+  .custom-table tbody tr:hover {
+    background-color: #d4edda; /* Light green hover effect */
   }
   
-  li ul li {
-    cursor: pointer;
+  .custom-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
   }
   
-  li ul li:hover {
-    text-decoration: underline;
+  /* Responsive Table */
+  .table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Heading Style */
+  h3.text-success {
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 5px;
+  }
+  
+  /* Empty State Message */
+  .text-muted {
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
   }
   

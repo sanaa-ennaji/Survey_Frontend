@@ -1,4 +1,5 @@
-<div *ngIf="subjects.length > 0" class="w-full h-[100vh] bg-gray-100 border rounded" >
+<div class="flex w-full h-[100vh] bg-gray-100 border rounded gap-60">
+<div *ngIf="subjects.length > 0" >
     <div class="w-[40vw] ">
     <div *ngFor="let subject of subjects" class="subject-card p-4 mb-4 ">
       <div class="subject-title bg-green-500 text-white text-xl font-semibold p-3 rounded-t-lg">
@@ -10,7 +11,7 @@
         <h3 class="text-lg font-medium mb-2">Sub-Subjects</h3>
         <ul class="list-none pl-5">
           <li *ngFor="let subSubject of subject.subSubjects">
-            <div    (click)="onSubSubjectClick(subSubject.id)"    style="cursor: pointer; color: blue;"  class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded">
+            <div    (click)="onSubSubjectClick(subSubject.id)"    style="cursor: pointer; color: rgb(29, 47, 33);"  class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded">
               {{ subSubject.title }}
             </div>
           </li>
@@ -23,25 +24,33 @@
     <p>No subjects found.</p>
   </div>
   
-  <!-- Questions Table Section -->
-  <div class="col-md-6">
-    <h3>Questions</h3>
-    <table *ngIf="selectedSubSubjectQuestions.length > 0" class="table table-bordered">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Text</th>
-          <th>Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let question of selectedSubSubjectQuestions">
-          <td>{{ question.id }}</td>
-          <td>{{ question.text }}</td>
-          <td>{{ question.questionType }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <p *ngIf="selectedSubSubjectQuestions.length === 0">No questions available for this subsubject.</p>
-  </div>
+<!-- Questions Table Section -->
 
+<div class="col-md-6 p-4">
+    <h3 class="text-2xl font-semibold text-green-700 mb-4">Questions</h3>
+    <div class="overflow-x-auto shadow-md rounded-lg">
+      <table *ngIf="selectedSubSubjectQuestions.length > 0" class="w-[40vw] text-sm text-left text-gray-700 border border-green-200">
+        <thead class="bg-green-600 text-white">
+          <tr>
+            <th scope="col" class="px-4 py-2">ID</th>
+            <th scope="col" class="px-4 py-2">Text</th>
+            <th scope="col" class="px-4 py-2">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of selectedSubSubjectQuestions" class="hover:bg-green-50 border-b">
+            <td class="px-4 py-2">{{ question.id }}</td>
+            <td class="px-4 py-2">{{ question.text }}</td>
+            <td class="px-4 py-2">{{ question.questionType }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="selectedSubSubjectQuestions.length === 0" class="text-gray-500 mt-4 text-center">
+        No questions available for this subsubject.
+      </p>
+    </div>
+  </div>
+  
+  
+  
+</div>
