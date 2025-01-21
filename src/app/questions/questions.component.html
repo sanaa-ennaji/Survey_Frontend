@@ -7,6 +7,7 @@
             <th scope="col" class="px-4 py-2">ID</th>
             <th scope="col" class="px-4 py-2">Text</th>
             <th scope="col" class="px-4 py-2">Type</th>
+            <th scope="col" class="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -14,6 +15,11 @@
             <td class="px-4 py-2">{{ question.id }}</td>
             <td class="px-4 py-2">{{ question.text }}</td>
             <td class="px-4 py-2">{{ question.questionType }}</td>
+            <td class="px-4 py-2">
+                <button 
+                  class="bg-blue-500 text-white px-2 py-1 rounded" 
+                  (click)="showAnswers(question.answers)">View Answers</button>
+              </td>
           </tr>
         </tbody>
       </table>
@@ -21,5 +27,11 @@
         No questions available for this subsubject.
       </p>
     </div>
-
   </div>
+
+  <!-- Answer Component -->
+<div *ngIf="selectedAnswers">
+    <app-answer [answers]="selectedAnswers"></app-answer>
+    <button class="bg-red-500 text-white px-4 py-2 rounded mt-4" (click)="hideAnswers()">Close Answers</button>
+  </div>
+
