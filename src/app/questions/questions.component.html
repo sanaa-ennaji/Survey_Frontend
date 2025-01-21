@@ -31,7 +31,20 @@
 
   <!-- Answer Component -->
 <div *ngIf="selectedAnswers">
+   <!-- Back Button with FontAwesome Icon -->
+<div class="mt-4">
+    <fa-icon 
+      [icon]="'arrow-left'" 
+      class="text-green-500 text-xl cursor-pointer mr-2" 
+      (click)="hideAnswers()">
+    </fa-icon>
+    <span 
+      class="text-green-500 text-lg cursor-pointer" 
+      (click)="hideAnswers()"> Back
+    </span>
+  </div>
+  
     <app-answer [answers]="selectedAnswers"></app-answer>
-    <button class="bg-green-500 text-white px-4 py-2 rounded mt-4" (click)="hideAnswers()">Close Answers</button>
+
   </div>
 
