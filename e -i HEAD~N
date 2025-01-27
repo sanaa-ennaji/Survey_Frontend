@@ -1,0 +1,27 @@
+72bc398 2025-01-22 Merge branch 'main' of https://github.com/sanaa-ennaji/Survey_Frontend
+5d3cdc1 2025-01-22 add component
+d02fe21 2025-01-22 Create blank.yml
+c7291e6 2025-01-21 add icon
+32452f9 2025-01-21 updating color
+8c30b44 2025-01-21 answers table added succsufully
+ca6890b 2025-01-21 import the answer model in the question model
+39b49e1 2025-01-20 seperate question table to aother components
+5876d47 2025-01-06 displayed questions
+c049afe 2025-01-06 add questions model
+858b6c9 2025-01-01 add participate
+f89947f 2024-12-30 addsubjects sub
+709c6ef 2024-12-30 update service
+539e5c7 2024-12-30 saperate models
+7b65aca 2024-12-30 subjects display
+d1405a3 2024-12-28 update url
+da7fab8 2024-12-28 Displays subjects and their sub-subjects in the template.
+8825c57 2024-12-28 add subject service
+896c854 2024-12-28 add subjects
+7806c55 2024-12-27 surveys done
+027bfe1 2024-12-26 surveys findall done
+0156a3e 2024-12-26 add http provider
+c7fca7e 2024-12-26 changes
+ed197dc 2024-12-26 feat: add service survey for displaying surveys
+9caa831 2024-12-26 add tailwind
+ea815ee 2024-12-24 config :install
+46a20e0 2024-12-24 install et config
