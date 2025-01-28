@@ -15,4 +15,8 @@ export class SurveyService {
     const params = new HttpParams().set('page', page).set('size', size);
     return this.http.get<PaginationResponse>(this.apiUrl, { params });
   }
+  
+  createSurvey(survey: { title: string; description: string,  ownerId: number}): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, survey);
+  }
 }
