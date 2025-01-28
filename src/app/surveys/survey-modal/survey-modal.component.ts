@@ -26,9 +26,9 @@ export class SurveyModalComponent {
     if (this.surveyTitle && this.surveyDescription) {
       this.surveyCreated.emit({
         title: this.surveyTitle,
-        description: this.surveyDescription,
+        description: this.surveyDescription
       });
       this.closeModal();
     }
-  }
+  }  
 }
