@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PaginationResponse } from '../models/pagination-response.model';
+import { SurveyCreate } from '../models/survey-create.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class SurveyService {
     return this.http.get<PaginationResponse>(this.apiUrl, { params });
   }
   
-  createSurvey(survey: { title: string; description: string,  ownerId: number}): Observable<any> {
+  createSurvey(survey:SurveyCreate): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, survey);
   }
 }
