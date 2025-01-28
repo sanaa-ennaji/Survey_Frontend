@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms'; 
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-survey-modal',
   templateUrl: './survey-modal.component.html',
   styleUrls: ['./survey-modal.component.css'],
+  imports: [CommonModule, FormsModule]
 })
 export class SurveyModalComponent {
   showModal = false;
