@@ -1,5 +1,17 @@
 
   <h2 class="w-[98w] bg-green-500  text-xl text-white font-semibold p-3  text-center mb-8 scroll-m-0">Surveys</h2>
+  <!-- Survey Modal -->
+<app-survey-modal #surveyModal (surveyCreated)="onSurveyCreated($event)"></app-survey-modal>
+
+<!-- Plus Icon to Trigger Modal -->
+<div class="fixed bottom-6 right-6">
+  <fa-icon 
+    [icon]="'plus-circle'" 
+    class="text-green-500 text-4xl cursor-pointer" 
+    (click)="surveyModal.openModal()">
+  </fa-icon>
+</div>
+
   <div class="survey-list">
     
   <div class="survey-cards flex-wrap w-[80vw] m-auto">
