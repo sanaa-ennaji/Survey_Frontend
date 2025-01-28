@@ -3,7 +3,7 @@
       <h2 class="text-xl font-bold mb-4">Create a New Survey</h2>
       <form (ngSubmit)="createSurvey()">
         <div class="mb-4">
-          <label class="block text-gray-700">Survey Title:</label>
+          <label class="block text-gray-700">Survey Title</label>
           <input 
             type="text" 
             [(ngModel)]="surveyTitle" 
@@ -12,7 +12,7 @@
             required>
         </div>
         <div class="mb-4">
-          <label class="block text-gray-700">Description:</label>
+          <label class="block text-gray-700">Description</label>
           <textarea 
             [(ngModel)]="surveyDescription" 
             name="description" 

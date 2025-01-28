@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../../services/survey.service';
 import { Survey } from '../../models/survey.model';
+import { SurveyCreate } from '../../models/survey-create.model';
 import { PaginationResponse } from '../../models/pagination-response.model';
 import { SurveyCardComponent } from '../survey-card/survey-card.component';
 import { SurveyModalComponent } from '../survey-modal/survey-modal.component';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+
 @Component({
   selector: 'app-survey-list',
   standalone: true,
-  imports: [CommonModule, SurveyCardComponent,FontAwesomeModule, SurveyModalComponent],
+  imports: [CommonModule, SurveyCardComponent, FontAwesomeModule, SurveyModalComponent],
   templateUrl: './survey-list.component.html',
   styleUrls: ['./survey-list.component.css']
 })
@@ -19,7 +21,7 @@ export class SurveyListComponent implements OnInit {
   currentPage = 0;
   pageSize = 6;
   totalPages = 0;
-
+  currentOwnerId = 1;
   constructor(private surveyService: SurveyService) {}
 
   ngOnInit(): void {
@@ -42,8 +44,22 @@ export class SurveyListComponent implements OnInit {
       this.loadSurveys(page);
     }
   }
-    onSurveyCreated(survey: Survey): void {
-    this.surveys.unshift(survey);
-    console.log('New survey created:', survey);
+  onSurveyCreated(surveyCreate: SurveyCreate) {
+    console.log('Survey created in parent:', surveyCreate);
+  
+    
+    const newSurvey: Survey = {
+      id: 0, 
+      title: surveyCreate.title,
+      description: surveyCreate.description,
+      owner: { id: surveyCreate.ownerId, name: 'Owner Name' }, 
+      surveyEditions: [], 
+    };
+  
+    this.surveys.push(newSurvey);
   }
+  
+  
+   
+  
 }
