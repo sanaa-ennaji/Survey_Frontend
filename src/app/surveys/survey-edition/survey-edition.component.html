@@ -1,1 +1,37 @@
-<p>survey-edition works!</p>
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" *ngIf="showModal">
+    <div class="bg-white rounded-lg p-6 w-1/3 shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Create a New Survey</h2>
+      <form (ngSubmit)="createSurveyEdition()">
+        <div class="mb-4">
+          <label for="creationDate" class="block text-gray-700">creation Date</label>
+          <input 
+          type="date" id="creationDate" [(ngModel)]="surveyEdition.creationDate" name="creationDate" required class="w-full p-2 border rounded">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700">startDate</label>
+            <input 
+            type="date" id="startDate" [(ngModel)]="surveyEdition.startDate" name="startDate" required class="w-full p-2 border rounded">
+          </div>
+        <div class="mb-4">
+            <label class="block text-gray-700">year</label>
+            <input 
+            type="number" id="year" [(ngModel)]="surveyEdition.year" name="year" required class="w-full p-2 border rounded">
+          </div>
+     
+        <div class="flex justify-end">
+          <button 
+            type="button" 
+            class="bg-red-500 text-white px-4 py-2 rounded mr-2" 
+            (click)="closeModal()">Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="bg-green-500 text-white px-4 py-2 rounded">Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+

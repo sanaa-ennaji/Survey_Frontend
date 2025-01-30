@@ -1,5 +1,5 @@
 export interface SurveyEdition {
-    id: number;
+    id?: number;
     creationDate: string;
     startDate: string;
     year: number;
