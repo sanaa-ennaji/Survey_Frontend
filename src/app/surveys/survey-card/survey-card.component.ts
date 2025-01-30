@@ -1,25 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-interface Owner {
-  id: number;
-  name: string;
-}
-
-interface SurveyEdition {
-  id: number;
-  creationDate: string;
-  startDate: string;
-  year: number;
-}
-
-interface Survey {
-  id: number;
-  title: string;
-  description: string;
-  owner: Owner;
-  surveyEditions: SurveyEdition[];
-}
+import { Survey} from '../../models/survey.model';
 
 @Component({
   selector: 'app-survey-card',
