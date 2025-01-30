@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Survey} from '../../models/survey.model';
-
+import { SurveyEditionComponent} from '../survey-edition/survey-edition.component'
 @Component({
   selector: 'app-survey-card',
   standalone: true,
