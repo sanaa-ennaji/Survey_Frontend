@@ -19,7 +19,7 @@ export class SurveyEditionComponent {
   constructor(private surveyEditionService: SurveyEditionService) {}
 
   createEdition() {
-    this.surveyEditionService.createSurveyEdition(this.newEdition).subscribe(
+    this.surveyEditionService.createSurveyEdition(this.surveyEdition).subscribe(
       (createdEdition) => {
         this.surveyCreated.emit(createdEdition);
         this.close.emit();
