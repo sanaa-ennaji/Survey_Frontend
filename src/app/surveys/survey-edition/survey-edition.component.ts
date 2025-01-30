@@ -8,19 +8,26 @@ import { SurveyEdition } from '../../models/survey-edition.model';
   styleUrl: './survey-edition.component.css'
 })
 export class SurveyEditionComponent {
-
+  @Output() surveyCreated = new EventEmitter<SurveyEdition>();
+  @Output() close = new EventEmitter<void>();
   surveyEdition: SurveyEdition = {
     creationDate: '',
     startDate: '',
     year: new Date().getFullYear()
   }; 
 
-  @Output() surveyCreated = new EventEmitter<SurveyEdition>();
-  @Output() close = new EventEmitter<void>();
+  constructor(private surveyEditionService: SurveyEditionService) {}
 
-  createSurveyEdition() {
-    this.surveyCreated.emit(this.surveyEdition);
-    this.close.emit();
+  createEdition() {
+    this.surveyEditionService.createSurveyEdition(this.newEdition).subscribe(
+      (createdEdition) => {
+        this.surveyCreated.emit(createdEdition);
+        this.close.emit();
+      },
+      (error) => {
+        console.error('Error creating survey edition:', error);
+      }
+    );
   }
 
   closeModal() {
