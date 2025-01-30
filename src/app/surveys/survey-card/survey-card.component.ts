@@ -21,7 +21,7 @@ export class SurveyCardComponent {
     this.isModalOpen = true;
   }
 
-  handleSurveyCreated(newEdition: SurveyEdition) {
+  handleSurveyEditionCreated(newEdition: SurveyEdition) {
     this.survey.surveyEditions.push(newEdition);
     this.isModalOpen = false;
   }

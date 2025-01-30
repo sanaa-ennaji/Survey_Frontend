@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { SurveyEditionService } from '../../services/surveyEdition.service';
 import { SurveyEdition } from '../../models/survey-edition.model';
+import { FormsModule } from '@angular/forms'; 
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-survey-edition',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
 })
