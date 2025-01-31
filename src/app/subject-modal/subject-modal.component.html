@@ -1,1 +1,57 @@
-<p>subject-modal works!</p>
+<!-- subject-modal.component.html -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" *ngIf="isOpen">
+    <div class="w-96 bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-bold mb-4">{{ isSubsubject ? 'Add Subsubject' : 'Add Subject' }}</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Title</label>
+          <input
+            type="text"
+            [(ngModel)]="subject.title"
+            name="title"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+            required
+          />
+        </div>
+  
+        <div class="mb-4" *ngIf="hasParentSubject">
+          <label class="block text-sm font-medium text-gray-700">Parent Subject</label>
+          <select
+            [(ngModel)]="subject.parentSubjectId"
+            name="parentSubject"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
+          >
+            <option [value]="null">-- Select Parent Subject --</option>
+            <option *ngFor="let parent of existingSubjects" [value]="parent.id">{{ parent.title }}</option>
+          </select>
+        </div>
+  
+        <div class="flex items-center mb-4">
+          <input
+            type="checkbox"
+            id="isSubsubject"
+            [(ngModel)]="isSubsubject"
+            name="isSubsubject"
+            class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+          />
+          <label for="isSubsubject" class="ml-2 block text-sm text-gray-900">Is Subsubject?</label>
+        </div>
+  
+        <div class="flex justify-end gap-2">
+          <button
+            type="button"
+            (click)="closeModal()"
+            class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+          >
+            {{ isSubsubject ? 'Add Subsubject' : 'Add Subject' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
