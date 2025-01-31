@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SubjectService } from '../../services/subject.service';
 import { SubjectResponseDTO } from '../../models/subject.model';
 import { Question } from '../../models/question.model';
 import { CommonModule } from '@angular/common';
 import { QuestionsComponent } from '../../questions/questions.component';
+import { SubjectModalComponent } from '../../subject-modal/subject-modal.component';
 
 @Component({
   selector: 'app-subjects',
   templateUrl: './subjects-list.component.html',
   standalone: true,
-  imports: [CommonModule, QuestionsComponent], 
+  imports: [CommonModule, QuestionsComponent, SubjectModalComponent], 
   providers: [SubjectService],
 })
 export class SubjectsListComponent implements OnInit {
   subjects: SubjectResponseDTO[] = [];
   selectedSubSubjectQuestions: Question[] = [];
   editionId!: number;
-
+  @ViewChild('subjectModal') subjectModal!: SubjectModalComponent;
   constructor(
     private route: ActivatedRoute,
     private subjectService: SubjectService
@@ -47,6 +48,19 @@ export class SubjectsListComponent implements OnInit {
         this.selectedSubSubjectQuestions = subSubject.questions || [];
         break;
       }
+    }
+  }
+  onSubjectCreated(newSubject: SubjectResponseDTO): void {
+    if (newSubject.parentSubjectId) {
+
+      const parent = this.subjects.find((s) => s.id === newSubject.parentSubjectId);
+      if (parent) {
+        parent.subSubjects = parent.subSubjects || [];
+        parent.subSubjects.push(newSubject);
+      }
+    } else {
+
+      this.subjects.push(newSubject);
     }
   }
 }
