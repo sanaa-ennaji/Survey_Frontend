@@ -21,7 +21,7 @@ export class SurveyCardComponent {
   }
 
   onSurveyEditionCreated(edition: SurveyEdition): void {
-    this.survey.surveyEditions.push(edition); // Add the new edition to the survey's editions
-    this.selectedSurveyId = null; // Close the modal after the edition is created
+    this.survey.surveyEditions.push(edition); 
+    this.selectedSurveyId = null; 
   }
 }
