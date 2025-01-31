@@ -35,13 +35,12 @@
     <p>No subjects found.</p>
   </div>
   
-<app-questions [questions]="selectedSubSubjectQuestions"></app-questions>
-<app-subject-modal
-#subjectModal
-[editionId]="editionId"
-[existingSubjects]="subjects"
-(subjectCreated)="onSubjectCreated($event)"
-></app-subject-modal>
+  <app-subject-modal
+    #subjectModal
+    [editionId]="editionId"
+    [existingSubjects]="subjects"
+    (subjectCreated)="onSubjectCreated($event)"
+  ></app-subject-modal>
   
 
   

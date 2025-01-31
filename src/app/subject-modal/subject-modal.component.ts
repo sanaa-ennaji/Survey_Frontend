@@ -2,9 +2,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SubjectResponseDTO } from '../models/subject.model';
 import { SubjectService } from '../services/subject.service';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-subject-modal',
+  imports: [CommonModule, FormsModule],
   templateUrl: './subject-modal.component.html',
   styleUrls: ['./subject-modal.component.css']
 })
