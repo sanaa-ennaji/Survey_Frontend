@@ -1,7 +1,7 @@
 // subject-modal.component.ts
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SubjectResponseDTO } from '../models/subject.model';
-import { SubjectService } from '../services/subject.service';
+import { SubjectResponseDTO } from '../../models/subject.model';
+import { SubjectService } from '../../services/subject.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 @Component({

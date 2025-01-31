@@ -5,7 +5,7 @@ import { SubjectResponseDTO } from '../../models/subject.model';
 import { Question } from '../../models/question.model';
 import { CommonModule } from '@angular/common';
 import { QuestionsComponent } from '../../questions/questions.component';
-import { SubjectModalComponent } from '../../subject-modal/subject-modal.component';
+import { SubjectModalComponent } from '../../subject/subject-modal/subject-modal.component';
 
 @Component({
   selector: 'app-subjects',
