@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import  {SubjectResponseDTO } from '../models/subject.model'
 
 
@@ -15,4 +15,10 @@ export class SubjectService {
   getSubjectsByEditionId(id: number): Observable<SubjectResponseDTO[]> {
     return this.http.get<SubjectResponseDTO[]>(`${this.baseUrl}/${id}`);
   }
+
+  createDubject(editionId: number, subject:SubjectResponseDTO ): Observable <SubjectResponseDTO> {
+    return this.http.post<SubjectResponseDTO>(`${this.baseUrl}/${editionId}`, subject);
+ 
+}
+
 }
