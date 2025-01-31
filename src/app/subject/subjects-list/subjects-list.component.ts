@@ -23,7 +23,6 @@ export class SubjectsListComponent implements OnInit {
     private route: ActivatedRoute,
     private subjectService: SubjectService
   ) {}
-  @Input() subjectId!: number; 
   ngOnInit(): void {
     this.editionId = Number(this.route.snapshot.paramMap.get('id'));
     this.loadSubjects();

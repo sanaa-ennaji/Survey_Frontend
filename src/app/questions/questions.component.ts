@@ -13,6 +13,7 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuestionsComponent {
   @Input() questions: Question[] = [];
+  @Input() subjectId!: number; 
   selectedAnswers: any[] | null = null;
   newQuestion: Partial<Question> = {
     text: '',
