@@ -15,15 +15,11 @@ import { SurveyEditionComponent} from '../survey-edition/survey-edition.componen
 export class SurveyCardComponent {
   @Input() survey!: Survey;
 
-  isModalOpen = false;
-
-  openModal() {
-    console.log("Opening modal...");
-    this.isModalOpen = true;
-  }
+ 
 
   handleSurveyEditionCreated(newEdition: SurveyEdition) {
     this.survey.surveyEditions.push(newEdition);
-    this.isModalOpen = false;
+
   }
+  
 }

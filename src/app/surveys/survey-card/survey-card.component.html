@@ -13,10 +13,11 @@
     </a>
        <!-- Surveyedition modal  -->
   
-<app-survey-edition *ngIf="isModalOpen" 
-  (surveyCreated)="handleSurveyCreated($event)" 
-  (close)="isModalOpen = false">
-</app-survey-edition>
+       <app-survey-edition *ngIf="isModalOpen" 
+       (surveyCreated)="handleSurveyEditionCreated($event)" 
+       (close)="isModalOpen = false">
+     </app-survey-edition>
+     
 
    <div  (click)="openModal()"  class="  fill-green-700">
     <svg xmlns="http://www.w3.org/2000/svg"  class="text-green-500 w-9 text-4xl cursor-pointer" viewBox="0 0 448 512">

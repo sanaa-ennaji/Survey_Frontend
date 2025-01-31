@@ -44,6 +44,7 @@ export class SurveyListComponent implements OnInit {
       this.loadSurveys(page);
     }
   }
+  
   onSurveyCreated(surveyCreate: SurveyCreate) {
     console.log('Survey created in parent:', surveyCreate);
   

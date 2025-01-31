@@ -19,6 +19,12 @@ export class SurveyEditionComponent {
     year: new Date().getFullYear()
   }; 
 
+  isModalOpen = false;
+
+  openModal() {
+    console.log("Opening modal...");
+    this.isModalOpen = true;
+  }
   constructor(private surveyEditionService: SurveyEditionService) {}
 
   createEdition() {
