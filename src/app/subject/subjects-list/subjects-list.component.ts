@@ -5,7 +5,7 @@ import { SubjectResponseDTO } from '../../models/subject.model';
 import { Question } from '../../models/question.model';
 import { CommonModule } from '@angular/common';
 import { QuestionsComponent } from '../../questions/questions.component';
-import { SubjectModalComponent } from '../../subject/subject-modal/subject-modal.component';
+import { SubjectModalComponent } from '../subject-modal/subject-modal.component';
 
 @Component({
   selector: 'app-subjects',
@@ -31,7 +31,12 @@ export class SubjectsListComponent implements OnInit {
 
   loadSubjects(): void {
     this.subjectService.getSubjectsByEditionId(this.editionId).subscribe({
-      next: (data) => (this.subjects = data),
+      next: (data) => {
+        this.subjects = data.map(subject => ({
+          ...subject,
+          subSubjects: subject.subSubjects || [] 
+        }));
+      },
       error: (err) => console.error('Error loading subjects', err),
     });
   }
