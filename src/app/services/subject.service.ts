@@ -16,7 +16,7 @@ export class SubjectService {
     return this.http.get<SubjectResponseDTO[]>(`${this.baseUrl}/${id}`);
   }
 
-  createDubject(editionId: number, subject:SubjectResponseDTO ): Observable <SubjectResponseDTO> {
+  createSubject(editionId: number, subject:SubjectResponseDTO ): Observable <SubjectResponseDTO> {
     return this.http.post<SubjectResponseDTO>(`${this.baseUrl}/${editionId}`, subject);
  
 }
