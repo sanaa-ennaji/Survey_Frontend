@@ -21,6 +21,34 @@
                   (click)="showAnswers(question.answers)">Answers</button>
               </td>
           </tr>
+          <tr class="bg-green-50">
+            <td class="px-4 py-2">New</td>
+            <td class="px-4 py-2">
+              <input
+                type="text"
+                [(ngModel)]="newQuestion.text"
+                placeholder="Question Text"
+                class="w-full p-1 border border-gray-300 rounded"
+              />
+            </td>
+            <td class="px-4 py-2">
+              <select
+                [(ngModel)]="newQuestion.questionType"
+                class="w-full p-1 border border-gray-300 rounded"
+              >
+                <option value="MULTIPLE_CHOICE">Multiple Choice</option>
+                <option value="SINGLE_CHOICE">Single Choice</option>
+              </select>
+            </td>
+            <td class="px-4 py-2">
+              <button
+                class="bg-green-500 text-white px-2 py-1 rounded"
+                (click)="createQuestion()"
+              >
+                Add
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
       <p *ngIf="questions.length === 0" class="text-gray-500 mt-4 text-center">
