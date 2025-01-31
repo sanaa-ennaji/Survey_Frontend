@@ -36,10 +36,9 @@ export class SubjectsListComponent implements OnInit {
   }
 
   onSubSubjectClick(subSubjectId: number): void {
-    // Clear the previous selected questions
+
     this.selectedSubSubjectQuestions = [];
 
-    // Find the subSubject with the clicked id and fetch its questions
     for (const subject of this.subjects) {
       const subSubject = subject.subSubjects.find(
         (sub) => sub.id === subSubjectId
