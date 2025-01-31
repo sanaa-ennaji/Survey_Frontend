@@ -18,6 +18,7 @@ export class SurveyCardComponent {
   isModalOpen = false;
 
   openModal() {
+    console.log("Opening modal...");
     this.isModalOpen = true;
   }
 

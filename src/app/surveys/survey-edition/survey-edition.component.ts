@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-survey-edition',
   imports: [CommonModule, FormsModule],
+  standalone: true,
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
 })
