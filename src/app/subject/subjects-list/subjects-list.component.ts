@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild , Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SubjectService } from '../../services/subject.service';
 import { SubjectResponseDTO } from '../../models/subject.model';
@@ -23,7 +23,7 @@ export class SubjectsListComponent implements OnInit {
     private route: ActivatedRoute,
     private subjectService: SubjectService
   ) {}
-
+  @Input() subjectId!: number; 
   ngOnInit(): void {
     this.editionId = Number(this.route.snapshot.paramMap.get('id'));
     this.loadSubjects();
