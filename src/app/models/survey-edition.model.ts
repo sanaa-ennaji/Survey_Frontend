@@ -3,5 +3,6 @@ export interface SurveyEdition {
     creationDate: string;
     startDate: string;
     year: number;
+    surveyId?: number;
   }
   
