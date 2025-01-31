@@ -5,6 +5,6 @@ export interface Question {
     answerCount?: number;
     questionType: 'MULTIPLE_CHOICE' | 'SINGLE_CHOICE';
     subjectId?: number;
-    answers?: answer[];
+    answers: answer[];
   }
   

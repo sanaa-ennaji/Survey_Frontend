@@ -4,6 +4,7 @@ import { answer } from '../models/answer.models';
 
 @Component({
   selector: 'app-answer',
+  standalone: true,
   templateUrl: './answer.component.html',
   styleUrls: ['./answer.component.css'],
   imports: [CommonModule]

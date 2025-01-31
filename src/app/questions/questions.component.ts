@@ -23,7 +23,7 @@ export class QuestionsComponent {
 
   constructor(private questionService: QuestionService) {}
   showAnswers(answers: any[]) {
-    this.selectedAnswers = answers;
+    this.selectedAnswers = answers || [];
   }
 
   hideAnswers() {
