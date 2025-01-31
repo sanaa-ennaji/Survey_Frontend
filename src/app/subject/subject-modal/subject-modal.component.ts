@@ -46,7 +46,7 @@ export class SubjectModalComponent {
       parentSubjectId: this.isSubsubject ? this.subject.parentSubjectId : null,
     };
 
-    console.log('Creating subject with payload:', newSubject); // Debugging
+    console.log('Creating subject with payload:', newSubject); 
 
     this.subjectService
       .createSubject(this.editionId, newSubject as SubjectResponseDTO)
@@ -57,7 +57,7 @@ export class SubjectModalComponent {
         },
         error: (err) => {
           console.error('Error creating subject:', err);
-          console.error('Error details:', err.error); // Log the error details
+          console.error('Error details:', err.error);
         },
       });
   }

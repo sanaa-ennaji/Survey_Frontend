@@ -54,7 +54,7 @@ export class SubjectsListComponent implements OnInit {
         break;
       }
     }
-  }
+  } 
   onSubjectCreated(newSubject: SubjectResponseDTO): void {
     if (newSubject.parentSubjectId) {
 

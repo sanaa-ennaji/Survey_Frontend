@@ -15,11 +15,7 @@
         <h3 class="text-lg font-medium mb-2">Sub-Subjects</h3>
         <ul class="list-none pl-5">
           <li *ngFor="let subSubject of subject.subSubjects">
-            <div
-              (click)="onSubSubjectClick(subSubject.id)"
-              style="cursor: pointer; color: rgb(29, 47, 33);"
-              class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded"
-            >
+            <div    (click)="onSubSubjectClick(subSubject.id)"    style="cursor: pointer; color: rgb(29, 47, 33);"  class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded">
               {{ subSubject.title }}
             </div>
           </li>
@@ -37,7 +33,7 @@
   [existingSubjects]="subjects"
   (subjectCreated)="onSubjectCreated($event)"
 ></app-subject-modal>
-  
+<app-questions [questions]="selectedSubSubjectQuestions"></app-questions>
 
   
   
