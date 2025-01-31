@@ -25,7 +25,6 @@ export class SubjectModalComponent {
 
   constructor(private subjectService: SubjectService) {}
 
-  // Add this getter
   get hasParentSubject(): boolean {
     return this.isSubsubject && this.existingSubjects.length > 0;
   }

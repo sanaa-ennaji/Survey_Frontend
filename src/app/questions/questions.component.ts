@@ -16,6 +16,7 @@ import { QuestionService } from '../services/question.service';
 export class QuestionsComponent {
   @Input() questions: Question[] = [];
   @Input() subjectId!: number; 
+ 
   selectedAnswers: any[] | null = null;
   newQuestion: Partial<Question> = {
     text: '',
@@ -39,7 +40,8 @@ export class QuestionsComponent {
       return;
     }
 
-    this.newQuestion.subjectId = this.subjectId; 
+    this.newQuestion.subjectId = this.subjectId;
+    console.log('Payload being sent:', this.newQuestion); 
 
     this.questionService.createQuestion(this.newQuestion as Question).subscribe({
       next: (createdQuestion) => {
