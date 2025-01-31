@@ -4,26 +4,29 @@
   </svg>
   </div> 
 <div class="flex w-full h-[100vh] bg-gray-100 border rounded gap-60">
-<div *ngIf="subjects.length > 0" >
-    <div class="w-[40vw]">
-    
-    <div *ngFor="let subject of subjects" class="subject-card p-4 mb-4 ">
+  <div *ngIf="subjects.length > 0">
+    <div *ngFor="let subject of subjects" class="subject-card p-4 mb-4">
       <div class="subject-title bg-green-500 text-white text-xl font-semibold p-3 rounded-t-lg">
         {{ subject.title }}
       </div>
       
-      <div *ngIf="subject.subSubjects.length > 0" class="subsubjects mt-2">
+      <!-- Check if subSubjects exists and has items -->
+      <div *ngIf="subject.subSubjects && subject.subSubjects.length > 0" class="subsubjects mt-2">
         <h3 class="text-lg font-medium mb-2">Sub-Subjects</h3>
         <ul class="list-none pl-5">
           <li *ngFor="let subSubject of subject.subSubjects">
-            <div    (click)="onSubSubjectClick(subSubject.id)" style="cursor: pointer; color: rgb(29, 47, 33);"  class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded">
+            <div
+              (click)="onSubSubjectClick(subSubject.id)"
+              style="cursor: pointer; color: rgb(29, 47, 33);"
+              class="subsubject-banner bg-green-200 text-green-800 text-sm font-medium p-2 mb-2 rounded"
+            >
               {{ subSubject.title }}
             </div>
           </li>
         </ul>
       </div>
     </div>
-  </div>
+
 </div>
   <div *ngIf="subjects.length === 0">
     <p>No subjects found.</p>
