@@ -4,8 +4,10 @@ import { SurveyEdition } from '../../models/survey-edition.model';
 @Component({
   selector: 'app-survey-edition',
   imports: [],
+  standalone: true,
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
+  
 })
 export class SurveyEditionComponent {
   @Input() surveyId!: number; 

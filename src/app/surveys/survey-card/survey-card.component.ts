@@ -14,5 +14,14 @@ import { SurveyEditionComponent} from '../survey-edition/survey-edition.componen
 })
 export class SurveyCardComponent {
   @Input() survey!: Survey;
-  
+  selectedSurveyId: number | null = null;
+
+  openEditionModal(surveyId: number): void {
+    this.selectedSurveyId = surveyId; 
+  }
+
+  onSurveyEditionCreated(edition: SurveyEdition): void {
+    this.survey.surveyEditions.push(edition); // Add the new edition to the survey's editions
+    this.selectedSurveyId = null; // Close the modal after the edition is created
+  }
 }

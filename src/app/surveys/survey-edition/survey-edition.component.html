@@ -1,3 +1,53 @@
+<div class="modal" *ngIf="surveyId">
+    <div class="modal-content">
+      <h3>Create Survey Edition</h3>
+      <form (ngSubmit)="createSurveyEdition()">
+        <label for="startDate">Start Date:</label>
+        <input
+          id="startDate"
+          type="date"
+          [(ngModel)]="surveyEdition.startDate"
+          name="startDate"
+          required
+        />
+        <label for="year">Year:</label>
+        <input
+          id="year"
+          type="number"
+          [(ngModel)]="surveyEdition.year"
+          name="year"
+          required
+        />
+        <button type="submit">Create</button>
+        <button type="button" (click)="resetForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" *ngIf="showModal">
     <div class="bg-white rounded-lg p-6 w-1/3 shadow-lg">
       <h2 class="text-xl font-bold mb-4">Create a New Survey</h2>
