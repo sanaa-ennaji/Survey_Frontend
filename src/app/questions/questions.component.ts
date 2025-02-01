@@ -17,6 +17,7 @@ export class QuestionsComponent {
   @Input() questions: Question[] = [];
   @Input() subSubjectId!: number;
   selectedAnswers: any[] | null = null;
+  selectedQuestionId!: number;
   newQuestion: Partial<Question> = {
     text: '',
     questionType: 'MULTIPLE_CHOICE',
@@ -25,8 +26,9 @@ export class QuestionsComponent {
 
   constructor(private questionService: QuestionService) {}
 
-  showAnswers(answers: any[]) {
+  showAnswers(answers: any[], questionId: number) {
     this.selectedAnswers = answers;
+    this.selectedQuestionId = questionId;
   }
 
   hideAnswers() {
