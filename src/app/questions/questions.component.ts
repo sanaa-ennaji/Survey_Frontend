@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Question } from '../models/question.model';
-import { AnswerComponent } from '../answer/answer.component';
+import { AnswerComponent } from '../answers/answer/answer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { QuestionService } from '../services/question.service';
@@ -15,12 +15,13 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuestionsComponent {
   @Input() questions: Question[] = [];
-  @Input() subSubjectId!: number; // Add this input
+  @Input() subSubjectId!: number;
   selectedAnswers: any[] | null = null;
+  selectedQuestionId!: number; 
   newQuestion: Partial<Question> = {
     text: '',
     questionType: 'MULTIPLE_CHOICE',
-    subjectId: this.subSubjectId, // Use the subSubjectId
+    subjectId: this.subSubjectId, 
   };
 
   constructor(private questionService: QuestionService) {}
@@ -39,10 +40,9 @@ export class QuestionsComponent {
       return;
     }
 
-    this.newQuestion.subjectId = this.subSubjectId; // Ensure subSubjectId is set
+    this.newQuestion.subjectId = this.subSubjectId; 
 
-    console.log('Payload being sent:', this.newQuestion); // Debugging
-
+    console.log('Payload being sent:', this.newQuestion); 
     this.questionService.createQuestion(this.newQuestion as Question).subscribe({
       next: (createdQuestion) => {
         this.questions.push(createdQuestion);
@@ -50,7 +50,7 @@ export class QuestionsComponent {
       },
       error: (err) => {
         console.error('Error creating question:', err);
-        console.error('Error details:', err.error); // Log the error details
+        console.error('Error details:', err.error);
       },
     });
   }
@@ -58,8 +58,8 @@ export class QuestionsComponent {
   private resetForm() {
     this.newQuestion = {
       text: '',
-      questionType: 'MULTIPLE_CHOICE',
-      subjectId: this.subSubjectId, // Reset with the subSubjectId
+      questionType: 'MULTIPLE_CHOICE' ,
+      subjectId: this.subSubjectId, 
     };
   }
 }

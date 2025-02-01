@@ -17,7 +17,7 @@ import { SubjectModalComponent } from '../subject-modal/subject-modal.component'
 export class SubjectsListComponent implements OnInit {
   subjects: SubjectResponseDTO[] = [];
   selectedSubSubjectQuestions: Question[] = [];
-  selectedSubSubjectId!: number; // Add this property
+  selectedSubSubjectId!: number; 
   editionId!: number;
   @ViewChild('subjectModal') subjectModal!: SubjectModalComponent;
 
@@ -45,7 +45,7 @@ export class SubjectsListComponent implements OnInit {
 
   onSubSubjectClick(subSubjectId: number): void {
     this.selectedSubSubjectQuestions = [];
-    this.selectedSubSubjectId = subSubjectId; // Set the selected subSubjectId
+    this.selectedSubSubjectId = subSubjectId;
 
     for (const subject of this.subjects) {
       const subSubject = subject.subSubjects.find(

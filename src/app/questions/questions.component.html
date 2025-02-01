@@ -74,5 +74,8 @@
       (click)="hideAnswers()"> Back
     </span>
   </div>
-  <app-answer [answers]="selectedAnswers"></app-answer>
+  <app-answer
+   [answers]="selectedAnswers"
+   [questionId]="selectedQuestionId"
+  ></app-answer>
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { answer } from '../models/answer.models';
+import { answer } from '../../models/answer.models';
 
 @Component({
   selector: 'app-answer',
