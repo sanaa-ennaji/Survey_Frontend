@@ -17,7 +17,6 @@ export class QuestionsComponent {
   @Input() questions: Question[] = [];
   @Input() subSubjectId!: number;
   selectedAnswers: any[] | null = null;
-  selectedQuestionId!: number; 
   newQuestion: Partial<Question> = {
     text: '',
     questionType: 'MULTIPLE_CHOICE',
