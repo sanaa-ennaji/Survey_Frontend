@@ -24,7 +24,7 @@
             </button>
           </td>
         </tr>
-        <!-- Add a new row for creating a question -->
+
         <tr class="bg-green-50">
           <td class="px-4 py-2">New</td>
           <td class="px-4 py-2">
@@ -74,6 +74,8 @@
       (click)="hideAnswers()"> Back
     </span>
   </div>
-  <app-answer [answers]="selectedAnswers"
+  <app-answer 
+  [answers]="selectedAnswers"
+  [questionId]="selectedQuestionId"
   ></app-answer>
 </div>
