@@ -26,10 +26,15 @@ export class QuestionsComponent {
 
   constructor(private questionService: QuestionService) {}
 
-  showAnswers(answers: any[], questionId: number) {
+  showAnswers(answers: any[], questionId: number | undefined) {
+    if (questionId === undefined) {
+      console.error('Question ID is undefined.');
+      return;
+    }
     this.selectedAnswers = answers;
-    this.selectedQuestionId = questionId;
+    this.selectedQuestionId = questionId; 
   }
+  
 
   hideAnswers() {
     this.selectedAnswers = null;

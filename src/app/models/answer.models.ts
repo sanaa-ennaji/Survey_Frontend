@@ -1,5 +1,5 @@
 export interface answer {
-    id?: number;
+    id: number;
     text: string;
     selectionCount?: number;
     questionId: number; 
