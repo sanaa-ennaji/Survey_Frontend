@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild , Input} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SubjectService } from '../../services/subject.service';
 import { SubjectResponseDTO } from '../../models/subject.model';
@@ -11,18 +11,21 @@ import { SubjectModalComponent } from '../subject-modal/subject-modal.component'
   selector: 'app-subjects',
   templateUrl: './subjects-list.component.html',
   standalone: true,
-  imports: [CommonModule, QuestionsComponent, SubjectModalComponent], 
+  imports: [CommonModule, QuestionsComponent, SubjectModalComponent],
   providers: [SubjectService],
 })
 export class SubjectsListComponent implements OnInit {
   subjects: SubjectResponseDTO[] = [];
   selectedSubSubjectQuestions: Question[] = [];
+  selectedSubSubjectId!: number; // Add this property
   editionId!: number;
   @ViewChild('subjectModal') subjectModal!: SubjectModalComponent;
+
   constructor(
     private route: ActivatedRoute,
     private subjectService: SubjectService
   ) {}
+
   ngOnInit(): void {
     this.editionId = Number(this.route.snapshot.paramMap.get('id'));
     this.loadSubjects();
@@ -33,7 +36,7 @@ export class SubjectsListComponent implements OnInit {
       next: (data) => {
         this.subjects = data.map(subject => ({
           ...subject,
-          subSubjects: subject.subSubjects || [] 
+          subSubjects: subject.subSubjects || []
         }));
       },
       error: (err) => console.error('Error loading subjects', err),
@@ -41,8 +44,8 @@ export class SubjectsListComponent implements OnInit {
   }
 
   onSubSubjectClick(subSubjectId: number): void {
-
     this.selectedSubSubjectQuestions = [];
+    this.selectedSubSubjectId = subSubjectId; // Set the selected subSubjectId
 
     for (const subject of this.subjects) {
       const subSubject = subject.subSubjects.find(
@@ -53,17 +56,16 @@ export class SubjectsListComponent implements OnInit {
         break;
       }
     }
-  } 
+  }
+
   onSubjectCreated(newSubject: SubjectResponseDTO): void {
     if (newSubject.parentSubjectId) {
-
       const parent = this.subjects.find((s) => s.id === newSubject.parentSubjectId);
       if (parent) {
         parent.subSubjects = parent.subSubjects || [];
         parent.subSubjects.push(newSubject);
       }
     } else {
-
       this.subjects.push(newSubject);
     }
   }

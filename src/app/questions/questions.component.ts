@@ -15,13 +15,12 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuestionsComponent {
   @Input() questions: Question[] = [];
-  @Input() subjectId!: number; 
- 
+  @Input() subSubjectId!: number; // Add this input
   selectedAnswers: any[] | null = null;
   newQuestion: Partial<Question> = {
     text: '',
     questionType: 'MULTIPLE_CHOICE',
-    subjectId: this.subjectId, 
+    subjectId: this.subSubjectId, // Use the subSubjectId
   };
 
   constructor(private questionService: QuestionService) {}
@@ -40,8 +39,9 @@ export class QuestionsComponent {
       return;
     }
 
-    this.newQuestion.subjectId = this.subjectId;
-    console.log('Payload being sent:', this.newQuestion); 
+    this.newQuestion.subjectId = this.subSubjectId; // Ensure subSubjectId is set
+
+    console.log('Payload being sent:', this.newQuestion); // Debugging
 
     this.questionService.createQuestion(this.newQuestion as Question).subscribe({
       next: (createdQuestion) => {
@@ -50,7 +50,7 @@ export class QuestionsComponent {
       },
       error: (err) => {
         console.error('Error creating question:', err);
-        alert('Failed to create question. Please try again.');
+        console.error('Error details:', err.error); // Log the error details
       },
     });
   }
@@ -59,7 +59,7 @@ export class QuestionsComponent {
     this.newQuestion = {
       text: '',
       questionType: 'MULTIPLE_CHOICE',
-      subjectId: this.subjectId, 
+      subjectId: this.subSubjectId, // Reset with the subSubjectId
     };
   }
 }
